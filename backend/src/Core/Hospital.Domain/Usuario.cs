@@ -11,7 +11,7 @@ public class Usuario : BaseDomainModel { //IdentityUser
     //ID heredado de BaseDomainModel
 
     [Column(TypeName = "INT")]
-    public int ID_Roll { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
+    public int RollID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
 
     [Column(TypeName = "NVARCHAR(150)")]
     public string Nombre { get; set; }
@@ -31,7 +31,7 @@ public class Usuario : BaseDomainModel { //IdentityUser
     [Column(TypeName = "NVARCHAR(15)")]
     public string Telefono { get; set; }
 
-    //FechaCreacion NO se hereda de la clase abstracta BaseDomainModel
+    //FechaCreacion se hereda de la clase abstracta BaseDomainModel
     //public DateTime FechaCreacion { get; set; }
 
     public bool EstaActivo { get; set; } //Propiedad para saber si el usuario esta activo o no esta activo
@@ -39,15 +39,15 @@ public class Usuario : BaseDomainModel { //IdentityUser
 
     public virtual Perfil? Perfil { get; set; } //Relacion Uno
 
-    public virtual ICollection<Ingreso_y_Alta>? Ingresos_y_Altas { get; set; }
+    //public virtual ICollection<Ingreso_y_Alta>? Ingresos_y_Altas { get; set; }
 
     public virtual ICollection<Procedimiento>? Procedimientos { get; set; }
 
     public Usuario(string nombre, string apellido, string nombreUsuario, 
-            string contrasenia, string correo, string telefono, int id_Roll, DateTime fechaCreacion, bool estaActivo){
+            string contrasenia, string correo, string telefono, int rollid, DateTime fechaCreacion, bool estaActivo){
 
         //this.ID = id_Usuario;
-        this.ID_Roll = id_Roll;
+        this.RollID = rollid;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.NombreUsuario = nombreUsuario;

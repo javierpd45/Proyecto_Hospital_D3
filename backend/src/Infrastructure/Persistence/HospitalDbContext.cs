@@ -15,17 +15,19 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Perfil>() //Relacion uno a muchos Perfiles - Usuarios
             .HasMany(u => u.Usuarios)
             .WithOne(p => p.Perfil)
-            .HasForeignKey(p => p.ID_Roll)
+            .HasForeignKey(p => p.RollID)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade); //Cuando no se quiere que se borre la lista de usuarios se utiliza .Restrict
             //En este caso utilizamos .Cascade para eliminar todos los usuarios relacionados a un perfil
 
+        /*
         builder.Entity<Usuario>() //Relacion uno a muchos Usuarios - Ingresos_y_Altas
             .HasMany(ia => ia.Ingresos_y_Altas)
             .WithOne(u => u.Usuario)
             .HasForeignKey(u => u.ID_Doctor)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
+        */
 
         builder.Entity<Usuario>() //Relacion uno a muchos Usuarios - Procedimientos
             .HasMany(p => p.Procedimientos)
@@ -51,7 +53,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Analisis
             .HasMany(a => a.Analisis)
             .WithOne(p => p.Paciente)
-            .HasForeignKey(p => p.ID_Paciente)
+            .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
@@ -72,7 +74,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Cuenta>() //Relacion uno a muchos Cuentas - Transacciones
             .HasMany(t => t.Transacciones)
             .WithOne(c => c.Cuenta)
-            .HasForeignKey(c => c.ID_Cuenta)
+            .HasForeignKey(c => c.CuentaID)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 

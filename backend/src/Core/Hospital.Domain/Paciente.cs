@@ -4,6 +4,10 @@ using Hospital.Domain.Common;
 namespace Hospital.Domain;
 
 public class Paciente : BaseDomainModel{
+
+    [Column(TypeName = "NVARCHAR(15)")]
+    public string PacienteCedula { get; set; }
+
     [Column(TypeName = "NVARCHAR(150)")]
     public string Nombre { get; set; }
 
@@ -32,8 +36,8 @@ public class Paciente : BaseDomainModel{
 
     public virtual ICollection<Cuenta>? Cuentas { get; set; }
 
-    public Paciente(string nombre, string apellido, string direccion, string correo, string telefono, DateOnly fechaNacimiento){
-        //this.ID = id_Paciente;
+    public Paciente(string pacienteCedula ,string nombre, string apellido, string direccion, string correo, string telefono, DateOnly fechaNacimiento){
+        this.PacienteCedula = pacienteCedula;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Direccion = direccion;

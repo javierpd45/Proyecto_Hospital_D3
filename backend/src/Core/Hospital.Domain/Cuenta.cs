@@ -7,8 +7,8 @@ public class Cuenta : BaseDomainModel {
 
     //El ID de la cuenta se hereda de la clase BaseDomainModel
 
-    [Column(TypeName = "INT")]
-    public int ID_Paciente { get; set; } //(Clave foránea referenciando la tabla de Pacientes)
+    [Column(TypeName = "NVARCHAR(15)")]
+    public string PacienteCedula { get; set; } //(Clave foránea referenciando la tabla de Pacientes)
 
     // [Column(TypeName = "NVARCHAR(150)")]
     // public string NombreOperacion { get; set; }
@@ -29,9 +29,9 @@ public class Cuenta : BaseDomainModel {
 
     public virtual ICollection<Transaccion>? Transacciones { get; set; }
 
-    public Cuenta(int id_Paciente, decimal saldo, string descripcion, CuentaEstado estado, DateTime fechaCreacion){
+    public Cuenta(string pacienteCedula, decimal saldo, string descripcion, CuentaEstado estado, DateTime fechaCreacion){
         //this.ID = id_Cuenta;
-        this.ID_Paciente = id_Paciente;
+        this.PacienteCedula = pacienteCedula;
         //this.NombreOperacion = nombreOperacion;
         this.Saldo = saldo;
         this.Estado = estado;

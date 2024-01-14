@@ -5,7 +5,7 @@ namespace Hospital.Domain;
 
 public class Transaccion : BaseDomainModel {
     [Column(TypeName = "INT")]
-    public int ID_Cuenta { get; set; }
+    public int CuentaID { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
     public string TipoTransaccion { get; set; }
@@ -13,13 +13,13 @@ public class Transaccion : BaseDomainModel {
     [Column(TypeName = "DECIMAL(10, 2)")]
     public decimal Monto { get; set; }
 
-    [Column(TypeName = "DATETIME")]
+    [Column(TypeName = "DATETIME2")]
     public DateTime FechaTransaccion { get; set; }
 
     public virtual Cuenta? Cuenta { get; set; }
 
-    public Transaccion(int id_Cuenta, string tipoTransaccion, decimal monto, DateTime fechaTransaccion){
-        this.ID_Cuenta = id_Cuenta;
+    public Transaccion(int cuentaId, string tipoTransaccion, decimal monto, DateTime fechaTransaccion){
+        this.CuentaID = cuentaId;
         this.TipoTransaccion = tipoTransaccion;
         this.Monto = monto;
         this.FechaTransaccion = fechaTransaccion;

@@ -7,16 +7,16 @@ public abstract class BaseDomainModel {
     [Column(TypeName = "INT")]
     public int ID { get; set; }
 
-    [Column(TypeName = "DATETIME")]
+    [Column(TypeName = "DATETIME2")]
     public DateTime? FechaCreacion { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
     public string? CreadoPor {get;set;}
 
-    [Column(TypeName = "DATETIME")]
+    [Column(TypeName = "DATETIME2")]
     public DateTime? UltimaFechaModificacion { get; set; }
 
-    [Column(TypeName = "DATETIME")]
+    [Column(TypeName = "DATETIME2")]
     public DateTime? UltimaModificacionPor { get; set; }
 
     [Column(TypeName = "NVARCHAR(250)")]
