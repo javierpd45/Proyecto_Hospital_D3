@@ -39,14 +39,14 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Ingresos_y_Altas
             .HasMany(ia => ia.Ingresos_y_Altas)
             .WithOne(p => p.Paciente)
-            .HasForeignKey(p => p.ID_Paciente)
+            .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Procedimientos
             .HasMany(pr => pr.Procedimientos)
             .WithOne(p => p.Paciente)
-            .HasForeignKey(p => p.ID_Paciente)
+            .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
@@ -60,14 +60,14 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Autorizaciones
             .HasMany(a => a.Autorizaciones)
             .WithOne(p => p.Paciente)
-            .HasForeignKey(p => p.ID_Paciente)
+            .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Cuentas
             .HasMany(c => c.Cuentas)
             .WithOne(p => p.Paciente)
-            .HasForeignKey(p => p.ID_Paciente)
+            .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
