@@ -1,7 +1,8 @@
 using System.Collections;
 using Hospital.Application.Persistence;
+using Hospital.Infrastructure.Persistence;
 
-namespace Hospital.Persistence.Repositories;
+namespace Hospital.Infrastructure.Persistence.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {

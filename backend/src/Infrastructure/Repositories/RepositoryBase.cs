@@ -1,8 +1,9 @@
 using System.Linq.Expressions;
 using Hospital.Application.Persistence;
+using Hospital.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hospital.Persistence.Repositories;
+namespace Hospital.Infrastructure.Persistence.Repositories;
 
 public class RepositoryBase<T> : IAsyncRepository<T> where T : class
 {

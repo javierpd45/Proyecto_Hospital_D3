@@ -1,6 +1,6 @@
 using System.Text;
 using Hospital.Domain;
-using Hospital.Persistence;
+using Hospital.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;

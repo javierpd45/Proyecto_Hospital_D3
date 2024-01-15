@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 
-namespace Hospital.Persistence;
+namespace Hospital.Infrastructure.Persistence;
 
 public class HospitalDbContext : IdentityDbContext<UserAsp> {//IdentityDbContext<Usuario> solo si usamos IdentityUser como clase Padre en la clase Usuario
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options){}
