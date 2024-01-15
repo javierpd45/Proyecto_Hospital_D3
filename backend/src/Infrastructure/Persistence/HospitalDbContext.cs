@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Persistence;
 
-public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario> solo si usamos IdentityUser como clase Padre en la clase Usuario
+public class HospitalDbContext : IdentityDbContext<UserAsp> {//IdentityDbContext<Usuario> solo si usamos IdentityUser como clase Padre en la clase Usuario
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options){}
 
     protected void OModelCreating(ModelBuilder builder)
@@ -85,8 +85,8 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
                 c => (CuentaEstado)Enum.Parse(typeof(CuentaEstado), c)
             );
 
-        //builder.Entity<Usuario>().Property(x => x.Id).HasMaxLength(36); //250)
-        //builder.Entity<Usuario>().Property(x => x.NormalizedUserName).HasMaxLength(90);
+        builder.Entity<UserAsp>().Property(x => x.Id).HasMaxLength(36); //250)
+        builder.Entity<UserAsp>().Property(x => x.NormalizedUserName).HasMaxLength(90);
         //Esto solo si utilizamos IdentityUser como clase Padre en alguna clase, en este caso en la clase Usuario
         //Como estamos usando la clase BaseDomainModel no haremos este paso (Clase 11. Trabajando en el DBContext)
     }
