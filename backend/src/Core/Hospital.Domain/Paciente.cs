@@ -1,11 +1,13 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hospital.Domain.Common;
 
 namespace Hospital.Domain;
 
-public class Paciente : BaseDomainModel{
+public class Paciente{
 
-    [Column(TypeName = "NVARCHAR(15)")]
+    //[Column(TypeName = "NVARCHAR(15)")]
+    [Key]
     public string? PacienteCedula { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
@@ -23,10 +25,10 @@ public class Paciente : BaseDomainModel{
     [Column(TypeName = "NVARCHAR(15)")]
     public string? Telefono { get; set; }
 
-    [Column(TypeName = "DATE")]
-    public DateOnly? FechaNacimiento { get; set; }
+    [Column(TypeName = "DATETIME2")]
+    public DateTime? FechaNacimiento { get; set; }
 
-    public virtual ICollection<Ingreso_y_Alta>? Ingresos_y_Altas { get; set; }
+    public virtual ICollection<IngresoAlta>? IngresoAltas { get; set; }
 
     public virtual ICollection<Procedimiento>? Procedimientos { get; set; }
 

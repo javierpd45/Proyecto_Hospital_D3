@@ -1,9 +1,14 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hospital.Domain.Common;
 
 namespace Hospital.Domain;
 
-public class Transaccion : BaseDomainModel {
+public class Transaccion{
+
+    [Key]
+    public int TransaccionID { get; set; }
+
     [Column(TypeName = "INT")]
     public int? CuentaID { get; set; }
 

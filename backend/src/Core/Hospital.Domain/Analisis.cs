@@ -1,9 +1,14 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hospital.Domain.Common;
 
 namespace Hospital.Domain;
 
-public class Analisis : BaseDomainModel{
+public class Analisis{
+
+    [Key]
+    public int? AnalisisID { get; set; }
+
     [Column(TypeName = "NVARCHAR(15)")]
     public int? PacienteCedula { get; set; }
 

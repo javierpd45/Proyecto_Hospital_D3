@@ -11,13 +11,14 @@ public class HospitalDbContextData{
 
     public static async Task LoadDataAsync(
         HospitalDbContext context,
-        UserManager<Usuario> usuarioManager,
-        RoleManager<IdentityRole> roleManager,
+        //UserManager<Usuario> usuarioManager,
+        //RoleManager<IdentityRole> roleManager,
         ILoggerFactory loggerFactory
     )
     {
         try
         {
+            /*
             
             if (!roleManager.Roles.Any())
             {
@@ -38,13 +39,13 @@ public class HospitalDbContextData{
                     Correo = "javierpd45@gmail.com",
                     Telefono = "0123456789"
 
-                    /*
-                    Nombre = "Pedro",
-                    Apellido = "Lora",
+                    
+                    //Nombre = "Pedro",
+                    //Apellido = "Lora",
                     //Email = "javierpd45@gmail.com",
-                    UserName = "pedro.lora",
-                    Telefono = "0123456789"
-                    */
+                    //UserName = "pedro.lora",
+                    //Telefono = "0123456789"
+                    
                 };
 
                 await usuarioManager.CreateAsync(usuarioAdmin, "PasswordPedroLora123$");
@@ -78,10 +79,12 @@ public class HospitalDbContextData{
                 await usuarioManager.CreateAsync(usuarioMantenimiento, "PasswordJoanSantana123$");
                 await usuarioManager.AddToRoleAsync(usuarioMantenimiento, Role.Mantenimiento);
             }
+
+            */
         
             if (context.Perfiles!.Any())
             {
-                var perfilData = File.ReadAllText("../Data/perfil.json");
+                var perfilData = File.ReadAllText("../Infrastructure/Data/perfil.json");
                 var perfiles = JsonConvert.DeserializeObject<List<Perfil>>(perfilData);
                 await context.Perfiles!.AddRangeAsync(perfiles!);
                 await context.SaveChangesAsync();
@@ -93,5 +96,10 @@ public class HospitalDbContextData{
             var logger = loggerFactory.CreateLogger<HospitalDbContext>();
             logger.LogError(e.Message);
         }
+    }
+
+    public static async Task LoadDataAsync(HospitalDbContext context)
+    {
+        throw new NotImplementedException();
     }
 }

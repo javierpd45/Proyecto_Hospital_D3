@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 using Hospital.Domain.Common;
@@ -6,9 +7,12 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace Hospital.Domain;
 
-public class Usuario : BaseDomainModel { //IdentityUser
+public class Usuario { //IdentityUser
 
     //ID heredado de BaseDomainModel
+
+    [Key]
+    public int UsuarioID { get; set; }
 
     [Column(TypeName = "INT")]
     public int? RollID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
@@ -32,8 +36,8 @@ public class Usuario : BaseDomainModel { //IdentityUser
     public string? Telefono { get; set; }
 
     //FechaCreacion se hereda de la clase abstracta BaseDomainModel
-    //[Column(TypeName = "DATETIME2")]
-    //public DateTime FechaCreacion { get; set; }
+    [Column(TypeName = "DATETIME2")]
+    public DateTime FechaCreacion { get; set; }
 
     public bool? EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
                                       //Sirve para solo darle acceso a la aplicacion si esta activo

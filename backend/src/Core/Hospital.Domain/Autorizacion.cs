@@ -1,15 +1,23 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using Hospital.Domain.Common;
 
 namespace Hospital.Domain;
 
-public class Autorizacion : BaseDomainModel{
+public class Autorizacion{
+
+    [Key]
+    public int AutorizacionID { get; set; }
+
     [Column(TypeName = "NVARCHAR(15)")]
     public string? PacienteCedula { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
     public string? TipoAutorizacion { get; set; }
+
+    [Column(TypeName = "NVARCHAR(250)")]
+    public string? Descripcion { get; set; }
 
     [Column(TypeName = "DATETIME2")]
     public DateTime? FechaSolicitud { get; set; }

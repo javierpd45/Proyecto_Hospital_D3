@@ -1,11 +1,15 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Hospital.Domain.Common;
 
 namespace Hospital.Domain;
 
-public class Cuenta : BaseDomainModel {
+public class Cuenta {
 
     //El ID de la cuenta se hereda de la clase BaseDomainModel
+
+    [Key]
+    public int CuentaID { get; set; }
 
     [Column(TypeName = "NVARCHAR(15)")]
     public string? PacienteCedula { get; set; } //(Clave foránea referenciando la tabla de Pacientes)
@@ -19,10 +23,11 @@ public class Cuenta : BaseDomainModel {
     [Column(TypeName = "NVARCHAR(20)")]
     public CuentaEstado Estado { get; set; } //= CuentaEstado.Pagada; //Esto se hace por si es necesario darle un valor por defecto
 
-    // [Column(TypeName = "NVARCHAR(250)")]
-    // public string? Descripcion { get; set; } //Descripcion sera heredado
+    [Column(TypeName = "NVARCHAR(250)")]
+    public string? Descripcion { get; set; } //Descripcion sera heredado
 
-    //public DateTime? FechaCreacion { get; set; }
+    [Column(TypeName = "DATETIME")]
+    public DateTime? FechaCreacion { get; set; }
     //Se toma de la clase abstracta BaseDomainModel
 
     public virtual Paciente? Paciente { get; set; }

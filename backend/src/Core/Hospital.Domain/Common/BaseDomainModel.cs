@@ -5,7 +5,7 @@ namespace Hospital.Domain.Common;
 public abstract class BaseDomainModel {
 
     [Column(TypeName = "INT")]
-    public int ID { get; set; }
+    public int? ID { get; set; }
 
     [Column(TypeName = "DATETIME2")]
     public DateTime? FechaCreacion { get; set; }
@@ -16,7 +16,7 @@ public abstract class BaseDomainModel {
 
 
     //-----------------------------------------------------------------------------------
-
+    /*
     [Column(TypeName = "DATETIME2")]
     public DateTime? CreatedDate { get; set; }
 
@@ -28,6 +28,6 @@ public abstract class BaseDomainModel {
 
     [Column(TypeName = "DATETIME2")]
     public string? LastModifiedBy { get; set; }
-
+    */
     //--------------------------------------------------------------------------------
 }

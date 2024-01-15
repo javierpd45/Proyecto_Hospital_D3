@@ -10,6 +10,8 @@ namespace Hospital.Infrastructure.Persistence;
 public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario> solo si usamos IdentityUser como clase Padre en la clase Usuario
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options){}
 
+    //----------------------------------------------------------------------------------------------------------------
+    /*
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         var userName = "system";
@@ -33,10 +35,14 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         return base.SaveChangesAsync(cancellationToken);
 
     }
+    */
+    //----------------------------------------------------------------------------------------------------------------
 
     protected void OModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        //builder.Entity<Perfil>().HasKey(p => p.PerfillID);
 
         builder.Entity<Perfil>() //Relacion uno a muchos Perfiles - Usuarios
             .HasMany(u => u.Usuarios)
@@ -63,7 +69,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Paciente>() //Relacion uno a muchos Pacientes - Ingresos_y_Altas
-            .HasMany(ia => ia.Ingresos_y_Altas)
+            .HasMany(ia => ia.IngresoAltas)
             .WithOne(p => p.Paciente)
             .HasForeignKey(p => p.PacienteCedula)
             .IsRequired()
@@ -115,6 +121,15 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         //builder.Entity<Usuario>().Property(x => x.NormalizedUserName).HasMaxLength(90);
         //Esto solo si utilizamos IdentityUser como clase Padre en alguna clase, en este caso en la clase Usuario
         //Como estamos usando la clase BaseDomainModel no haremos este paso (Clase 11. Trabajando en el DBContext)
+
+        /*
+        builder.Entity<Analisis>()
+        .Ignore(a => a.LastModifiedBy)
+        .Ignore(a => a.LastModifiedDate)
+        .Ignore(a => a.CreatedDate)
+        .Ignore(a => a.CreatedBy);
+        */
+
     }
 
     public DbSet<Analisis> Analisis { get; set; }
@@ -123,7 +138,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
 
     public DbSet<Cuenta> Cuentas { get; set; }
 
-    public DbSet<Ingreso_y_Alta> Ingresos_y_Altas { get; set; }
+    public DbSet<IngresoAlta> Ingresos_y_Altas { get; set; }
 
     public DbSet<Paciente> Pacientes { get; set; }
 
