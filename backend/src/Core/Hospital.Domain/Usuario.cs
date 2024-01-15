@@ -32,6 +32,7 @@ public class Usuario : BaseDomainModel { //IdentityUser
     public string Telefono { get; set; }
 
     //FechaCreacion se hereda de la clase abstracta BaseDomainModel
+    //[Column(TypeName = "DATETIME2")]
     //public DateTime FechaCreacion { get; set; }
 
     public bool EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
@@ -43,8 +44,9 @@ public class Usuario : BaseDomainModel { //IdentityUser
 
     public virtual ICollection<Procedimiento>? Procedimientos { get; set; }
 
-    public Usuario(string nombre, string apellido, string nombreUsuario, 
-            string contrasenia, string correo, string telefono, int rollid, DateTime fechaCreacion, bool estaActivo){
+    /*
+    public Usuario(int rollid, string nombre, string apellido, string nombreUsuario, 
+            string contrasenia, string correo, string telefono, DateTime fechaCreacion, bool estaActivo){
 
         //this.ID = id_Usuario;
         this.RollID = rollid;
@@ -57,6 +59,7 @@ public class Usuario : BaseDomainModel { //IdentityUser
         this.FechaCreacion = fechaCreacion;
         this.EstaActivo = estaActivo;
     }
+    */
 
 }
 

@@ -33,14 +33,14 @@ builder.Services.AddControllers(opt => //Para que tengan que loguearse antes de 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // Revisar que todo funcione bien
 
-IdentityBuilder identityBuilder = builder.Services.AddIdentityCore<UserAsp>();
+IdentityBuilder identityBuilder = builder.Services.AddIdentityCore<Usuario>();
 identityBuilder = new IdentityBuilder(identityBuilder.UserType, identityBuilder.Services);
 
 identityBuilder.AddRoles<IdentityRole>().AddDefaultTokenProviders();
-identityBuilder.AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<UserAsp, IdentityRole>>();
+identityBuilder.AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<Usuario, IdentityRole>>();
 
 identityBuilder.AddEntityFrameworkStores<HospitalDbContext>();
-identityBuilder.AddSignInManager<SignInManager<UserAsp>>();
+identityBuilder.AddSignInManager<SignInManager<Usuario>>();
 
 builder.Services.TryAddSingleton<ISystemClock, SystemClock>();
 

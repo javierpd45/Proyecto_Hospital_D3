@@ -1,17 +1,5 @@
 [
     {
-        "NombrePerfil" : "Cirujano",
-        "Descripcion" : "Hace cirugias"
-    },
-    {
-        "NombrePerfil" : "Medigo General",
-        "Descripcion" : "Hace Consultas Generales"
-    },
-    {
-        "NombrePerfil" : "Cardiologo",
-        "Descripcion" : "Consultas sobre temas relacionados al corazon"
-    },
-    {
         "NombrePerfil" : "Administrador",
         "Descripcion" : "Usuario Administrador del Core"
     },
@@ -22,5 +10,17 @@
     {
         "NombrePerfil" : "Usuario de Mantenimiento",
         "Descripcion" : "Puede leer y actualizar registros, en el Core"
-    }
+    },
+    {
+        "NombrePerfil" : "Cirujano",
+        "Descripcion" : "Hace cirugias"
+    },
+    {
+        "NombrePerfil" : "Medigo General",
+        "Descripcion" : "Hace Consultas Generales"
+    },
+    {
+        "NombrePerfil" : "Cardiologo",
+        "Descripcion" : "Consultas sobre temas relacionados al corazon"
+    }    
 ]

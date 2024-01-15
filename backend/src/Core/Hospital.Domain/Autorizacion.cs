@@ -19,6 +19,7 @@ public class Autorizacion : BaseDomainModel{
 
     public virtual Paciente? Paciente { get; set; }
 
+    /*
     public Autorizacion(string pacienteCedula, string tipoAutorizacion, string descripcion, DateTime fechaSolicitud, DateTime fechaAprobacion){
         this.PacienteCedula = pacienteCedula;
         this.TipoAutorizacion = tipoAutorizacion;
@@ -26,4 +27,5 @@ public class Autorizacion : BaseDomainModel{
         this.FechaSolicitud = fechaSolicitud;
         this.FechaAprobacion = fechaAprobacion;
     }
+    */
 }

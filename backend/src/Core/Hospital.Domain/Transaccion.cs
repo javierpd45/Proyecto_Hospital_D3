@@ -18,10 +18,12 @@ public class Transaccion : BaseDomainModel {
 
     public virtual Cuenta? Cuenta { get; set; }
 
+    /*
     public Transaccion(int cuentaId, string tipoTransaccion, decimal monto, DateTime fechaTransaccion){
         this.CuentaID = cuentaId;
         this.TipoTransaccion = tipoTransaccion;
         this.Monto = monto;
         this.FechaTransaccion = fechaTransaccion;
     }
+    */
 }

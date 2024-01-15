@@ -29,6 +29,7 @@ public class Cuenta : BaseDomainModel {
 
     public virtual ICollection<Transaccion>? Transacciones { get; set; }
 
+    /*
     public Cuenta(string pacienteCedula, decimal saldo, string descripcion, CuentaEstado estado, DateTime fechaCreacion){
         //this.ID = id_Cuenta;
         this.PacienteCedula = pacienteCedula;
@@ -38,6 +39,7 @@ public class Cuenta : BaseDomainModel {
         this.Descripcion = descripcion;
         this.FechaCreacion = fechaCreacion;
     }
+    */
 
 }
 

@@ -18,10 +18,12 @@ public class Analisis : BaseDomainModel{
 
     public virtual Paciente? Paciente { get; set; }
 
+    /*
     public Analisis(int pacienteCedula, string tipoAnalisis, string resultados, DateTime fechaRealizacion){
         this.PacienteCedula = pacienteCedula;
         this.TipoAnalisis = tipoAnalisis;
         this.Resultados = resultados;
         this.FechaRealizacion = fechaRealizacion;
     }
+    */
 }

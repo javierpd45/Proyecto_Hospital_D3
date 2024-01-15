@@ -14,9 +14,11 @@ public class Perfil : BaseDomainModel {
 
     public virtual ICollection<Usuario>? Usuarios { get; set; } //Relacion muchos
 
+    /*
     public Perfil(string nombrePerfil, string descripcion){
         //this.ID = id_Perfil;
         this.NombrePerfil = nombrePerfil;
         this.Descripcion = descripcion;
     }
+    */
 }

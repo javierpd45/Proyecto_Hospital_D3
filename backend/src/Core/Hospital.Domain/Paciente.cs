@@ -36,6 +36,7 @@ public class Paciente : BaseDomainModel{
 
     public virtual ICollection<Cuenta>? Cuentas { get; set; }
 
+    /*
     public Paciente(string pacienteCedula ,string nombre, string apellido, string direccion, string correo, string telefono, DateOnly fechaNacimiento){
         this.PacienteCedula = pacienteCedula;
         this.Nombre = nombre;
@@ -45,4 +46,5 @@ public class Paciente : BaseDomainModel{
         this.Telefono = telefono;
         this.FechaNacimiento = fechaNacimiento;
     }
+    */
 }

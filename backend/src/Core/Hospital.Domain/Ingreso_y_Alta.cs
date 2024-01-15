@@ -29,6 +29,7 @@ public class Ingreso_y_Alta : BaseDomainModel {
 
     public virtual Paciente? Paciente { get; set; }
 
+    /*
     public Ingreso_y_Alta(string pacienteCedula, DateTime fechaCita, DateTime fechaIngreso, DateTime fechaAlta, string motivoIngreso){
         //this.ID_Doctor = id_Doctor;
         this.PacienteCedula = pacienteCedula;
@@ -37,4 +38,5 @@ public class Ingreso_y_Alta : BaseDomainModel {
         this.FechaAlta = fechaAlta;
         this.MotivoIngreso = motivoIngreso;
     }
+    */
 }

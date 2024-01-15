@@ -24,6 +24,7 @@ public class Procedimiento : BaseDomainModel{
 
     public virtual Paciente? Paciente { get; set; }
 
+    /*
     public Procedimiento(string pacienteCedula, int medicoResponsable, string descripcion, 
                             DateTime fechaRealizacion, string resultados ){
         //this.ID = id_Procedimiento;
@@ -33,4 +34,5 @@ public class Procedimiento : BaseDomainModel{
         this.FechaRealizacion = fechaRealizacion;
         this.Resultados = resultados;
     }
+    */
 }
