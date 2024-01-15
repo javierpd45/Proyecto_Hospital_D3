@@ -1,12 +1,38 @@
 using System.Runtime.CompilerServices;
 using Hospital.Domain;
+using Hospital.Domain.Common;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 
 namespace Hospital.Persistence;
 
 public class HospitalDbContext : IdentityDbContext<UserAsp> {//IdentityDbContext<Usuario> solo si usamos IdentityUser como clase Padre en la clase Usuario
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options){}
+
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        var userName = "system";
+
+        foreach (var entry in ChangeTracker.Entries<BaseDomainModel>())
+        {
+            switch (entry.State)
+            {
+                case EntityState.Added:
+                    entry.Entity.CreatedDate = DateTime.Now;
+                    entry.Entity.CreatedBy = userName;
+                    break;
+                
+                case EntityState.Modified:
+                    entry.Entity.LastModifiedDate = DateTime.Now;
+                    entry.Entity.LastModifiedBy = userName;
+                    break;
+            }
+        }
+
+        return base.SaveChangesAsync(cancellationToken);
+
+    }
 
     protected void OModelCreating(ModelBuilder builder)
     {

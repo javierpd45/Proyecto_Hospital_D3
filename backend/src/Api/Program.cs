@@ -13,6 +13,8 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddInfrastructureServices(builder.Configuration);
+
 builder.Services.AddDbContext<HospitalDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"),
     b => b.MigrationsAssembly(typeof(HospitalDbContext).Assembly.FullName) //Imprime el log de cada tarea, en la consola
