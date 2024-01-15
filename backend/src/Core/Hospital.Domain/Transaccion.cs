@@ -5,16 +5,16 @@ namespace Hospital.Domain;
 
 public class Transaccion : BaseDomainModel {
     [Column(TypeName = "INT")]
-    public int CuentaID { get; set; }
+    public int? CuentaID { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string TipoTransaccion { get; set; }
+    public string? TipoTransaccion { get; set; }
 
     [Column(TypeName = "DECIMAL(10, 2)")]
-    public decimal Monto { get; set; }
+    public decimal? Monto { get; set; }
 
     [Column(TypeName = "DATETIME2")]
-    public DateTime FechaTransaccion { get; set; }
+    public DateTime? FechaTransaccion { get; set; }
 
     public virtual Cuenta? Cuenta { get; set; }
 

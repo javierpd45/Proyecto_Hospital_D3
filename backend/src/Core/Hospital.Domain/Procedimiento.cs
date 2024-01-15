@@ -7,18 +7,18 @@ public class Procedimiento : BaseDomainModel{
     //ID_Procedimiento sera heredado de BaseDomainModel
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string PacienteCedula { get; set; } //Llave foranea de la tabla Pacientes
+    public string? PacienteCedula { get; set; } //Llave foranea de la tabla Pacientes
 
     [Column(TypeName = "INT")]
-    public int MedicoResponsable { get; set; } //Llave foranea de la tabla Usuarios (representa el medico responsable del procedimiento)
+    public int? MedicoResponsable { get; set; } //Llave foranea de la tabla Usuarios (representa el medico responsable del procedimiento)
 
     //public string Descripcion { get; set; } //Descripcion del procedimiento, sera heredado
 
     [Column(TypeName = "DATETIME2")]
-    public DateTime FechaRealizacion { get; set; } //Fecha de realizacion del procedimiento
+    public DateTime? FechaRealizacion { get; set; } //Fecha de realizacion del procedimiento
 
     [Column(TypeName = "NVARCHAR(250)")]
-    public string Resultados { get; set; }
+    public string? Resultados { get; set; }
 
     public virtual Usuario? Usuario { get; set; }
 

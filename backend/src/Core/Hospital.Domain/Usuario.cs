@@ -11,31 +11,31 @@ public class Usuario : BaseDomainModel { //IdentityUser
     //ID heredado de BaseDomainModel
 
     [Column(TypeName = "INT")]
-    public int RollID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
+    public int? RollID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Apellido { get; set; }
+    public string? Apellido { get; set; }
 
     [Column(TypeName = "NVARCHAR(100)")]
-    public string NombreUsuario { get; set; }
+    public string? NombreUsuario { get; set; }
 
     [Column(TypeName = "NVARCHAR(100)")]
-    public string Contrasenia { get; set; }
+    public string? Contrasenia { get; set; }
 
     [Column(TypeName = "NVARCHAR(50)")]
-    public string Correo { get; set; }
+    public string? Correo { get; set; }
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string Telefono { get; set; }
+    public string? Telefono { get; set; }
 
     //FechaCreacion se hereda de la clase abstracta BaseDomainModel
     //[Column(TypeName = "DATETIME2")]
     //public DateTime FechaCreacion { get; set; }
 
-    public bool EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
+    public bool? EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
                                       //Sirve para solo darle acceso a la aplicacion si esta activo
 
     public virtual Perfil? Perfil { get; set; } //Relacion Uno

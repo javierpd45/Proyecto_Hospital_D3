@@ -11,19 +11,19 @@ public class Ingreso_y_Alta : BaseDomainModel {
     */
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string PacienteCedula { get; set; } //Llave foranea de la tabla Pacientes
+    public string? PacienteCedula { get; set; } //Llave foranea de la tabla Pacientes
 
     [Column(TypeName = "DATETIME2")]
-    public DateTime FechaCita { get; set; }
+    public DateTime? FechaCita { get; set; }
 
     [Column(TypeName = "DATETIME2")]
-    public DateTime FechaIngreso { get; set; }
+    public DateTime? FechaIngreso { get; set; }
 
     [Column(TypeName = "DATETIME2")]
-    public DateTime FechaAlta { get; set; }
+    public DateTime? FechaAlta { get; set; }
 
     [Column(TypeName = "NVARCHAR(250)")]
-    public string MotivoIngreso { get; set; }
+    public string? MotivoIngreso { get; set; }
 
     public virtual Usuario? Usuario { get; set; }
 

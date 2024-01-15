@@ -8,7 +8,7 @@ public class Cuenta : BaseDomainModel {
     //El ID de la cuenta se hereda de la clase BaseDomainModel
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string PacienteCedula { get; set; } //(Clave foránea referenciando la tabla de Pacientes)
+    public string? PacienteCedula { get; set; } //(Clave foránea referenciando la tabla de Pacientes)
 
     // [Column(TypeName = "NVARCHAR(150)")]
     // public string NombreOperacion { get; set; }

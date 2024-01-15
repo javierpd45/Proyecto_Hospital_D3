@@ -7,7 +7,7 @@ public class Perfil : BaseDomainModel {
     //ID heredado de BaseDomainModel
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string NombrePerfil { get; set; }
+    public string? NombrePerfil { get; set; }
 
     //[Column(TypeName = "NVARCHAR(150)")]
     //public string Descripcion { get; set; } //Descripcion sera heredado

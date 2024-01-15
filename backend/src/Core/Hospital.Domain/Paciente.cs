@@ -6,25 +6,25 @@ namespace Hospital.Domain;
 public class Paciente : BaseDomainModel{
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string PacienteCedula { get; set; }
+    public string? PacienteCedula { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Apellido { get; set; }
+    public string? Apellido { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Direccion { get; set; }
+    public string? Direccion { get; set; }
 
     [Column(TypeName = "NVARCHAR(150)")]
-    public string Correo { get; set; }
+    public string? Correo { get; set; }
 
     [Column(TypeName = "NVARCHAR(15)")]
-    public string Telefono { get; set; }
+    public string? Telefono { get; set; }
 
     [Column(TypeName = "DATE")]
-    public DateOnly FechaNacimiento { get; set; }
+    public DateOnly? FechaNacimiento { get; set; }
 
     public virtual ICollection<Ingreso_y_Alta>? Ingresos_y_Altas { get; set; }
 
