@@ -34,7 +34,7 @@ public class Usuario : BaseDomainModel { //IdentityUser
     //FechaCreacion se hereda de la clase abstracta BaseDomainModel
     //public DateTime FechaCreacion { get; set; }
 
-    public bool EstaActivo { get; set; } //Propiedad para saber si el usuario esta activo o no esta activo
+    public bool EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
                                       //Sirve para solo darle acceso a la aplicacion si esta activo
 
     public virtual Perfil? Perfil { get; set; } //Relacion Uno

@@ -9,5 +9,5 @@ public class UserAsp : IdentityUser { //Usuario de Asp Net Core
 
     public string? Telefono { get; set; }
 
-    public bool IsActive { get; set; }
+    public bool IsActive { get; set; } = true;
 }
