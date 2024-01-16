@@ -23,7 +23,6 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        CreateHostBuilder(args).Build().Run();
 
         CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
         CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
@@ -93,7 +92,9 @@ internal class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
+        
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddTransient<IAuthService, AuthService>();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -134,8 +135,9 @@ internal class Program
         .WithOpenApi();
 #endregion
 */
-        //---------------------------------------------------------------------------------------------------------------------------------
 
+        //---------------------------------------------------------------------------------------------------------------------------------
+#region Insercion de datos con Json
         using (var scope = app.Services.CreateScope())
         {
             var service = scope.ServiceProvider;
@@ -159,24 +161,11 @@ internal class Program
             }
 
         }
-
+#endregion
         //---------------------------------------------------------------------------------------------------------------------------------
-
-        app.Run();
+        await app.RunAsync();
+        //app.Run();
     }
-
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHttpContextAccessor();
-                    services.AddTransient<IAuthService, AuthService>();
-                    // Otros servicios y configuraciones aquí
-                });
-                //.ConfigureWebHostDefaults(webBuilder =>
-                //{
-                //    webBuilder.UseStartup<IStartup>(); // Puedes usar esto o dejarlo en blanco dependiendo de tu estructura
-                //});
 
 }
 
