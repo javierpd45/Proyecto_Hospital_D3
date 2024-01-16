@@ -15,7 +15,7 @@ public class Usuario { //IdentityUser
     public int UsuarioID { get; set; }
 
     [Column(TypeName = "INT")]
-    public int? RollID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
+    public int? PerfilID { get; set; } //(Clave foránea referenciando la tabla de Perfiles)
 
     [Column(TypeName = "NVARCHAR(150)")]
     public string? Nombre { get; set; }
@@ -39,7 +39,7 @@ public class Usuario { //IdentityUser
     [Column(TypeName = "DATETIME2")]
     public DateTime FechaCreacion { get; set; }
 
-    public bool? EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
+    //public bool? EstaActivo { get; set; } = true; //Propiedad para saber si el usuario esta activo o no esta activo
                                       //Sirve para solo darle acceso a la aplicacion si esta activo
 
     public virtual Perfil? Perfil { get; set; } //Relacion Uno

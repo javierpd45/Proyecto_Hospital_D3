@@ -93,9 +93,17 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         
+        //Sin esto no funciona Swagger
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddTransient<IAuthService, AuthService>();
         var app = builder.Build();
+
+        app.UseRouting();
+        app.UseAuthorization();
+        app.UseEndpoints(endpoints =>
+        {
+            _ = endpoints.MapControllers();
+        });
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -106,7 +114,7 @@ internal class Program
 
         //app.UseHttpsRedirection();
 
-        app.UseAuthorization();
+        //app.UseAuthorization();
         app.UseAuthentication();
 
         // ------*Revisar que funcione bien*------

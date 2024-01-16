@@ -47,7 +47,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Perfil>() //Relacion uno a muchos Perfiles - Usuarios
             .HasMany(u => u.Usuarios)
             .WithOne(p => p.Perfil)
-            .HasForeignKey(p => p.RollID)
+            .HasForeignKey(p => p.PerfilID)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade); //Cuando no se quiere que se borre la lista de usuarios se utiliza .Restrict
             //En este caso utilizamos .Cascade para eliminar todos los usuarios relacionados a un perfil
