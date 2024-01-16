@@ -98,6 +98,8 @@ internal class Program
         // ------*Revisar que funcione bien*------
         app.UseCors("CorsPolicy");
 
+/*
+#region WeatherForecast 1
         var summaries = new[]
         {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -117,7 +119,8 @@ internal class Program
         })
         .WithName("GetWeatherForecast")
         .WithOpenApi();
-
+#endregion
+*/
         //---------------------------------------------------------------------------------------------------------------------------------
 
         using (var scope = app.Services.CreateScope())
@@ -150,8 +153,11 @@ internal class Program
     }
 }
 
+/*
+#region WeatherForecast 2
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
-
+#endregion
+*/
