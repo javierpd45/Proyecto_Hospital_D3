@@ -14,7 +14,7 @@ public class Procedimiento{
     public string? PacienteCedula { get; set; } //Llave foranea de la tabla Pacientes
 
     [Column(TypeName = "INT")]
-    public int? MedicoResponsable { get; set; } //Llave foranea de la tabla Usuarios (representa el medico responsable del procedimiento)
+    public int? UsuarioID { get; set; } //Llave foranea de la tabla Usuarios (representa el medico responsable del procedimiento)
 
     [Column(TypeName = "NVARCHAR(250)")]
     public string? Descripcion { get; set; } //Descripcion del procedimiento, sera heredado

@@ -64,7 +64,7 @@ public class HospitalDbContext : IdentityDbContext {//IdentityDbContext<Usuario>
         builder.Entity<Usuario>() //Relacion uno a muchos Usuarios - Procedimientos
             .HasMany(p => p.Procedimientos)
             .WithOne(u => u.Usuario)
-            .HasForeignKey(u => u.MedicoResponsable)
+            .HasForeignKey(u => u.UsuarioID)
             .IsRequired()
             .OnDelete(DeleteBehavior.Cascade);
 
