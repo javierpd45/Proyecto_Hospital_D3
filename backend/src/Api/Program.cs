@@ -1,7 +1,11 @@
 using System.Globalization;
 using System.Text;
+using System.Text.Json.Serialization;
+using Hospital.Application;
+using Hospital.Application.Features.Perfiles.Queries.GetPerfilList;
 using Hospital.Domain;
 using Hospital.Infrastructure.Persistence;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +26,7 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddInfrastructureServices(builder.Configuration);
+        builder.Services.AddAplicationServices(builder.Configuration);
 
         builder.Services.AddDbContext<HospitalDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"),
@@ -29,13 +34,16 @@ internal class Program
             )
         );
 
+        builder.Services.AddMediatR(typeof(GetPerfilListQueryHandler).Assembly); //Para las consultas de los Perfiles
+
         // Add services to the container.
 
         builder.Services.AddControllers(opt => //Para que tengan que loguearse antes de hacer cualquier cosa
         {
             var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
             opt.Filters.Add(new AuthorizeFilter(policy));
-        });
+        }).AddJsonOptions(x =>
+                        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
         //Para seguridad, pero como no utilizamos IdentityUser no lo utilizo
         // -----------------------------------------------------------------------------------------------------------------------------------

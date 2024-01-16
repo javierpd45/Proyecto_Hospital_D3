@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Hospital.Application.Features.Perfiles.Queries.GetPerfilList;
 
-public class GetPerfilListQueryHandler : IRequestHandler<GetPerfilListQuery, List<Perfil>> //Para transformarlo en un QuetyHandler
+public class GetPerfilListQueryHandler : IRequestHandler<GetPerfilListQuery, IReadOnlyList<Perfil>> //Para transformarlo en un QuetyHandler
                                                                                            //implementa la interfaz IRequestHandler
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -15,7 +15,7 @@ public class GetPerfilListQueryHandler : IRequestHandler<GetPerfilListQuery, Lis
         this._unitOfWork = unitOfWork;
     }
 
-    public async Task<List<Perfil>> Handle(GetPerfilListQuery request, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<Perfil>> Handle(GetPerfilListQuery request, CancellationToken cancellationToken)
     {
         var includes = new List<Expression<Func<Perfil, object>>>();
         includes.Add(p => p.Usuarios!);
@@ -27,6 +27,6 @@ public class GetPerfilListQueryHandler : IRequestHandler<GetPerfilListQuery, Lis
             true
         );
 
-        return new List<Perfil>(perfiles);
+        return perfiles;
     }
 }
