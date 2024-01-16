@@ -1,4 +1,4 @@
-using Hospital.Application.Identity;
+using Hospital.Application.Contracts.Identity;
 using Hospital.Application.Models.Token;
 using Hospital.Application.Persistence;
 using Hospital.Infrastructure.Persistence.Repositories;

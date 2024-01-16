@@ -2,13 +2,16 @@ using System.Globalization;
 using System.Text;
 using System.Text.Json.Serialization;
 using Hospital.Application;
+using Hospital.Application.Contracts.Identity;
 using Hospital.Application.Features.Perfiles.Queries.GetPerfilList;
 using Hospital.Domain;
 using Hospital.Infrastructure.Persistence;
+using Hospital.Infrastructure.Services.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +23,8 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
+        CreateHostBuilder(args).Build().Run();
+
         CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
         CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
 
@@ -159,6 +164,20 @@ internal class Program
 
         app.Run();
     }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddHttpContextAccessor();
+                    services.AddTransient<IAuthService, AuthService>();
+                    // Otros servicios y configuraciones aquí
+                });
+                //.ConfigureWebHostDefaults(webBuilder =>
+                //{
+                //    webBuilder.UseStartup<IStartup>(); // Puedes usar esto o dejarlo en blanco dependiendo de tu estructura
+                //});
+
 }
 
 /*

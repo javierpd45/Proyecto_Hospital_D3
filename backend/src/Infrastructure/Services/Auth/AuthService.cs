@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Hospital.Application.Identity;
+using Hospital.Application.Contracts.Identity;
 using Hospital.Application.Models.Token;
 using Hospital.Domain;
 using Microsoft.AspNetCore.Http;
